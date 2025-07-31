@@ -3,7 +3,8 @@ import pandas as pd
 import plotly.express as px
 
 # Load data
-@st.cache
+st.cache_data 
+
 def load_data():
     try:
         df = pd.read_csv("sales.csv")
@@ -24,7 +25,7 @@ start_date, end_date = st.sidebar.date_input("Select date range", [min_date, max
 filtered_df = df[(df['OrderDate'] >= pd.to_datetime(start_date)) & (df['OrderDate'] <= pd.to_datetime(end_date))]
 
 # Dashboard
-st.title("🎂 Ukrop’s Custom Cake Sales Dashboard")
+st.title("🎂 Custom Cake Sales Dashboard")
 
 # KPI Metrics
 total_sales = filtered_df['RetailPrice'].sum()
