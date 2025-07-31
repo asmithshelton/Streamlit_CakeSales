@@ -3,11 +3,15 @@ import pandas as pd
 import plotly.express as px
 
 # Load data
-@st.cache_data
+@st.cache
 def load_data():
-    df = pd.read_csv("sales.csv")
-    df['OrderDate'] = pd.to_datetime(df['OrderDate'])
-    return df
+    try:
+        df = pd.read_csv("sales.csv")
+        df['OrderDate'] = pd.to_datetime(df['OrderDate'], errors='coerce')
+        return df.dropna(subset=["OrderDate"])
+    except Exception as e:
+        st.error(f"⚠️ Failed to load data: {e}")
+        return pd.DataFrame()
 
 df = load_data()
 
