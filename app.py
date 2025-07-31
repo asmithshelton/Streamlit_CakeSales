@@ -34,7 +34,7 @@ filtered_df = df[
 ]
 
 # Title & Header
-st.markdown("<h1 style='text-align: center;'>🎂 Ukrop's Custom Cake Sales Dashboard</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center;'>🎂 Custom Cake Sales Dashboard</h1>", unsafe_allow_html=True)
 st.markdown("<hr>", unsafe_allow_html=True)
 
 # KPIs with Columns
